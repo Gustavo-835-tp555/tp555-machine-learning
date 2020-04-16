@@ -21,12 +21,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 # Convert a collection of text documents into a matrix of token counts.
 vect = CountVectorizer(binary=True)
 # Learn the vocabulary dictionary and return term-document matrix.
-# This is equivalent to fit followed by transform, but more efficiently implemented.
 X_train_t = vect.fit_transform(X_train)
 
 # Instantiate a Bernoulli Naive Bayes model.
 nb = BernoulliNB(binarize=None)
-
 # Train the MultinomialNB model.
 nb.fit(X_train_t, y_train)
 
